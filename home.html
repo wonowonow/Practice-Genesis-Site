@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Genesis</title>
+    <style>
+        #list {
+            font-size: 35px;
+            display: grid;
+            text-align: center;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            border-bottom: 4px solid black;
+        }
+        a {
+            text-decoration: none;
+            color: black
+        }
+        h1{
+            font-size: 40px;
+            text-align: center;
+            border-bottom: 4px solid black;
+            padding-bottom: 30px;
+            margin-bottom: 0px;
+        }
+
+    /* INPUT 가리기 */
+        .section input[id*="slide"] {
+            display:none;
+        }
+        .section .slidewrap {
+            max-width: 100%;
+            margin: 0 auto;
+            overflow:hidden;
+        }
+        .section .slidelist {
+            white-space: nowrap;
+            font-size: 0;
+            padding:0;
+            margin:0;
+        }
+        .section .slidelist > li {
+            display: inline-block;
+            vertical-align: middle;
+            width: 100%;
+            transition: all .5s;
+        }
+        .section .slidelist > li > a {
+            display: block;
+            position: relative;
+        }
+        .section .slidelist > li > a img {
+            width: 100%;
+        }
+
+    /* 좌우로 넘기는 LABEL버튼에 대한 스타일 */
+        .section .slidelist label 
+        {position: absolute;z-index: 1;top: 50%;transform: translateY(-50%);padding: 30px;cursor:pointer;}
+        .section .slidelist .left 
+        {left: 30px;background: url('./img/left.png') center center / 100% no-repeat;}
+        .section .slidelist .right 
+        {right:30px;background:url('./img/right.png') center center / 100% no-repeat;}
+
+    /* INPUT 체크되면 변화값이 li까지 전달되는 스타일 */
+        .section input[id="slide01"]:checked ~ .slidewrap .slidelist > li {transform:translateX(0%);}
+        .section input[id="slide02"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-100%);}
+        .section input[id="slide03"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-200%);}
+    </style>
+</head>
+<body>
+    <h1><a href="home.html">Genesis</a></h1>
+    <div id="list">
+        <p><a href="car.html">차량</a></p>
+        <p><a href="events.html">이벤트</a></p>
+        <p><a href="field drive.html">체험</a></p>
+        <p><a href="service.html">고객 지원</a></p>
+    </div>
+    <div class="section">
+        <input type="radio" name="slide" id="slide01" checked>
+        <input type="radio" name="slide" id="slide02">
+        <input type="radio" name="slide" id="slide03">
+
+        <div class="slidewrap">
+           <ul class="slidelist">
+                <li>
+                    <a>
+                        <label for="slide03" class="left"></label>
+                        <img src="./img/genesis-gv60-2560x900.jpg">
+                        <label for="slide02" class="right"></label>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <label for="slide01" class="left"></label>
+                        <img src="./img/genesis-gv80-2560x900.jpg">
+                        <label for="slide03" class="right"></label>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <label for="slide02" class="left"></label>
+                        <img src="./img/genesis-g80-2560x900.jpg">
+                        <label for="slide01" class="right"></label>
+                    </a>
+                </li>
+           </ul> 
+        </div>
+    </div>
+</body>
+</html>
